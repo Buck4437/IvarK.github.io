@@ -550,7 +550,7 @@ if (player.version < 5) {
   else document.getElementById("chartOnOff").checked = false
   if (player.options.chart.dips) document.getElementById("chartDipsOnOff").checked = true
   else document.getElementById("chartDipsOnOff").checked = false
- 
+
   if (player.options.theme == "Dark" || player.options.theme == "Dark Metro") {
     Chart.defaults.global.defaultFontColor = '#888';
     normalDimChart.data.datasets[0].borderColor = '#888'
@@ -673,7 +673,7 @@ function change_save(saveId) {
   load_game();
   updateChallenges()
   transformSaveToDecimal()
-  showDimTab('antimatterdimensions')
+  showDimTab('Paperclipdimensions')
   showStatsTab('stats')
   showChallengesTab('challenges')
   showEternityTab('timestudies', true)

@@ -1,6 +1,6 @@
 // Time studies
 
-function buyWithAntimatter() {
+function buyWithpaperclip() {
   if (player.money.gte(player.timestudy.amcost)) {
       player.money = player.money.minus(player.timestudy.amcost)
       player.timestudy.amcost = player.timestudy.amcost.times(new Decimal("1e20000"))

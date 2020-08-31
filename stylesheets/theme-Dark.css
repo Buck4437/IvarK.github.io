@@ -1,6 +1,6 @@
-body {
+paperclipbody {
     background-image: url('../images/dark-bg.png');
-    background-position: center; 
+    background-position: center;
 }
 
 button {
@@ -62,7 +62,7 @@ input {
 }
 
 #coinAmount {
-    animation: antimatterGlow 25s infinite;
+    animation: paperclipGlow 25s infinite;
 }
 
 #progressbar {
