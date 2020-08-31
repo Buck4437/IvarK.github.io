@@ -1,4 +1,4 @@
-paperclipbody {
+body {
     background-image: url('../images/dark-bg.png');
     background-position: center;
 }
@@ -563,7 +563,7 @@ input {
     text-shadow: 0px 0px 7px #64DD17;
 }
 
-@keyframes antimatterGlow {
+@keyframes paperclipGlow {
     0%  {color: #2196F3;}
     33% {color: #673AB7;}
     66%  {color: #00BCD4;}
