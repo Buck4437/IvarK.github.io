@@ -1,4 +1,3 @@
-//test
 var gameLoopIntervalId;
 var Marathon = 0;
 var Marathon2 = 0;
@@ -75,7 +74,7 @@ var player = {
     tickspeedMultiplier: new Decimal(10),
     chall2Pow: 1,
     chall3Pow: new Decimal(0.01),
-    matter: new Decimal(0),
+    antiPaperclip: new Decimal(0),
     chall11Pow: new Decimal(1),
     partInfinityPoint: 0,
     partInfinitied: 0,
@@ -416,9 +415,9 @@ function showTab(tabName) {
 function updateMoney() {
     var element = document.getElementById("coinAmount");
     element.textContent = formatValue(player.options.notation, player.money, 2, 1);
-    var element2 = document.getElementById("matter");
-    if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") element2.textContent = "There is " + formatValue(player.options.notation, player.matter, 2, 1) + " matter."
-    if (player.currentChallenge == "postc6") element2.textContent = "There is " + formatValue(player.options.notation, Decimal.pow(player.matter,20), 2, 1) + " matter."; //TODO
+    var element2 = document.getElementById("anti-paperclip");
+    if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") element2.textContent = "There is " + formatValue(player.options.notation, player.antiPaperclip, 2, 1) + " anti-paperclip."
+    if (player.currentChallenge == "postc6") element2.textContent = "There is " + formatValue(player.options.notation, Decimal.pow(player.antiPaperclip,20), 2, 1) + " anti-paperclip."; //TODO
 }
 
 function updateCoinPerSec() {
@@ -964,7 +963,7 @@ document.getElementById("maxall").onclick = function () {
 
         }
         }
-        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0)) player.matter = new Decimal(1);
+        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
         if (player.currentChallenge == "challenge2" || player.currentChallenge == "postc1") player.chall2Pow = 0;
         if (player.currentChallenge == "postc1") clearDimensions(tier-1);
         player.postC4Tier = tier;
@@ -1657,7 +1656,7 @@ function galaxyReset() {
         tickspeedMultiplier: new Decimal(10),
         chall2Pow: player.chall2Pow,
         chall3Pow: new Decimal(0.01),
-        matter: new Decimal(0),
+        antiPaperclip: new Decimal(0),
         chall11Pow: new Decimal(1),
         partInfinityPoint: player.partInfinityPoint,
         partInfinitied: player.partInfinitied,
@@ -2883,7 +2882,7 @@ document.getElementById("bigcrunch").onclick = function () {
             chall2Pow: 1,
             chall3Pow: new Decimal(0.01),
             newsArray: player.newsArray,
-            matter: new Decimal(0),
+            antiPaperclip: new Decimal(0),
             chall11Pow: new Decimal(1),
             partInfinityPoint: player.partInfinityPoint,
             partInfinitied: player.partInfinitied,
@@ -2980,8 +2979,8 @@ document.getElementById("bigcrunch").onclick = function () {
         setInitialDimensionPower();
 
 
-        if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("matter").style.display = "block";
-        else document.getElementById("matter").style.display = "none";
+        if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("anti-paperclip").style.display = "block";
+        else document.getElementById("anti-paperclip").style.display = "none";
 
         document.getElementById("replicantireset").innerHTML = "Reset replicanti amount, but get a free galaxy<br>"+player.replicanti.galaxies + " replicated galaxies created."
 
@@ -3002,7 +3001,7 @@ document.getElementById("bigcrunch").onclick = function () {
             document.getElementById("seventhRow").style.display = "none";
             document.getElementById("eightRow").style.display = "none";
         }
-        document.getElementById("matter").style.display = "none";
+        document.getElementById("anti-paperclip").style.display = "none";
         document.getElementById("quickReset").style.display = "none";
 
         checkForEndMe()
@@ -3183,7 +3182,7 @@ function eternity(force, auto) {
             chall2Pow: 1,
             chall3Pow: new Decimal(0.01),
             newsArray: player.newsArray,
-            matter: new Decimal(0),
+            antiPaperclip: new Decimal(0),
             chall11Pow: new Decimal(1),
             challengeTimes: player.challengeTimes,
             infchallengeTimes: player.infchallengeTimes,
@@ -3349,7 +3348,7 @@ function eternity(force, auto) {
             document.getElementById("seventhRow").style.display = "none";
             document.getElementById("eightRow").style.display = "none";
         }
-        document.getElementById("matter").style.display = "none";
+        document.getElementById("anti-paperclip").style.display = "none";
         document.getElementById("quickReset").style.display = "none";
         if (player.infinitied >= 1 && !player.challenges.includes("challenge1")) player.challenges.push("challenge1");
         var autobuyers = document.getElementsByClassName('autoBuyerDiv')
@@ -3490,7 +3489,7 @@ function startChallenge(name, target) {
       tickspeedMultiplier: new Decimal(10),
       chall2Pow: 1,
       chall3Pow: new Decimal(0.01),
-      matter: new Decimal(0),
+      antiPaperclip: new Decimal(0),
       newsArray: player.newsArray,
       chall11Pow: new Decimal(1),
       partInfinityPoint: player.partInfinityPoint,
@@ -3607,8 +3606,8 @@ function startChallenge(name, target) {
     document.getElementById("sixthRow").style.display= "none";
     document.getElementById("seventhRow").style.display= "none";
     document.getElementById("eightRow").style.display= "none";
-    if (name == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("matter").style.display = "block";
-    else document.getElementById("matter").style.display = "none";
+    if (name == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("anti-paperclip").style.display = "block";
+    else document.getElementById("anti-paperclip").style.display = "none";
 
     if (name == "challenge12" || name == "challenge9" || name == "challenge5" || player.currentChallenge == "postc1" || player.currentChallenge == "postc4" || player.currentChallenge == "postc5" || player.currentChallenge == "postc6" || player.currentChallenge == "postc8") document.getElementById("quickReset").style.display = "inline-block";
     else document.getElementById("quickReset").style.display = "none";
@@ -3983,7 +3982,7 @@ function startEternityChallenge(name, startgoal, goalIncrease) {
             chall2Pow: 1,
             chall3Pow: new Decimal(0.01),
             newsArray: player.newsArray,
-            matter: new Decimal(0),
+            antiPaperclip: new Decimal(0),
             chall11Pow: new Decimal(1),
             challengeTimes: player.challengeTimes,
             infchallengeTimes: player.infchallengeTimes,
@@ -4144,7 +4143,7 @@ function startEternityChallenge(name, startgoal, goalIncrease) {
         document.getElementById("sixthRow").style.display = "none";
         document.getElementById("seventhRow").style.display = "none";
         document.getElementById("eightRow").style.display = "none";
-        document.getElementById("matter").style.display = "none";
+        document.getElementById("anti-paperclip").style.display = "none";
         document.getElementById("quickReset").style.display = "none";
         var autobuyers = document.getElementsByClassName('autoBuyerDiv')
         if (player.eternities < 2) {
@@ -4643,7 +4642,7 @@ setInterval(function() {
     if (player.tickspeed.lt(1e-26)) giveAchievement("Faster than a potato");
     if (player.tickspeed.lt(1e-55)) giveAchievement("Faster than a squared potato");
     if (Math.random() < 0.00001) giveAchievement("Do you feel lucky? Well do ya punk?");
-    if ((player.matter.gte(2.586e15) && player.currentChallenge == "postc6") || player.matter.gte(Number.MAX_VALUE)) giveAchievement("It's not called matter dimensions is it?")
+    if ((player.antiPaperclip.gte(2.586e15) && player.currentChallenge == "postc6") || player.antiPaperclip.gte(Number.MAX_VALUE)) giveAchievement("It's not called anti-paperclip dimensions is it?")
 
     document.getElementById("dilationTabbtn").style.display = (player.dilation.studies.includes(1)) ? "inline-block" : "none"
     updateDilationUpgradeButtons()
@@ -4690,17 +4689,17 @@ function gameLoop(diff) {
     if (player.thisInfinityTime < -10) player.thisInfinityTime = Infinity
     if (player.bestInfinityTime < -10) player.bestInfinityTime = Infinity
     if (diff > player.autoTime && !player.break) player.infinityPoints = player.infinityPoints.plus(player.autoIP.times(diff/player.autoTime))
-    /*if (player.currentChallenge == "postc6" && player.matter.gte(1)) player.matter = player.matter.plus(diff/10)
+    /*if (player.currentChallenge == "postc6" && player.antiPaperclip.gte(1)) player.antiPaperclip = player.antiPaperclip.plus(diff/10)
     else */
-    player.matter = player.matter.times(Decimal.pow((1.03 + player.resets/200 + player.galaxies/100), diff));
-    if (player.matter.gt(player.money) && (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1")) {
+    player.antiPaperclip = player.antiPaperclip.times(Decimal.pow((1.03 + player.resets/200 + player.galaxies/100), diff));
+    if (player.antiPaperclip.gt(player.money) && (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1")) {
         if (player.resets > 0) player.resets--;
         softReset(0);
     }
 
     if (player.currentChallenge == "postc8") postc8Mult = postc8Mult.times(Math.pow(0.000000046416, diff))
 
-    if (player.currentChallenge == "challenge3" || player.matter.gte(1)) player.chall3Pow = player.chall3Pow.times(Decimal.pow(1.00038, diff));
+    if (player.currentChallenge == "challenge3" || player.antiPaperclip.gte(1)) player.chall3Pow = player.chall3Pow.times(Decimal.pow(1.00038, diff));
     player.chall2Pow = Math.min(player.chall2Pow + diff/1800, 1);
     if (player.currentChallenge == "postc2") {
         postC2Count++;

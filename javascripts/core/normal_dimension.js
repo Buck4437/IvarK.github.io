@@ -58,7 +58,7 @@ function getDimensionFinalMultiplier(tier) {
   multiplier = multiplier.times(player.postC3Reward)
   if (player.challenges.includes("postc8") && tier < 8 && tier > 1) multiplier = multiplier.times(mult18);
 
-  if (player.currentChallenge == "postc6") multiplier = multiplier.dividedBy(player.matter.max(1))
+  if (player.currentChallenge == "postc6") multiplier = multiplier.dividedBy(player.antiPaperclip.max(1))
   if (player.currentChallenge == "postc8") multiplier = multiplier.times(postc8Mult)
 
   if (player.currentChallenge == "postc4" && player.postC4Tier != tier) multiplier = multiplier.pow(0.25)
@@ -294,7 +294,7 @@ function hasInfinityMult(tier) {
 
         auto = false;
 
-        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0)) player.matter = new Decimal(1);
+        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
         if (player.currentChallenge != "challenge10" && player.currentChallenge != "postc1") {
             if (!canBuyDimension(tier)) {
                 return false;
@@ -444,7 +444,7 @@ function hasInfinityMult(tier) {
                 }
             }
         }
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0)) player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
     if (player.currentChallenge == "challenge2" || player.currentChallenge == "postc1") player.chall2Pow = 0;
     if (player.currentChallenge == "postc1") clearDimensions(tier-1);
     player.postC4Tier = tier;
@@ -464,7 +464,7 @@ document.getElementById("first").onclick = function () {
         if (player.firstAmount >= 1e150) {
             giveAchievement("There's no point in doing that");
         }
-        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.matter.equals(0)) player.matter = new Decimal(1);
+        if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
     }
     if (player.firstAmount.lt(1)) {
         player.money = new Decimal("0")
@@ -476,17 +476,17 @@ document.getElementById("first").onclick = function () {
 
 document.getElementById("second").onclick = function () {
     buyOneDimension(2);
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0)) player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
 };
 
 document.getElementById("third").onclick = function () {
     buyOneDimension(3);
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0))player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0))player.antiPaperclip = new Decimal(1);
 };
 
 document.getElementById("fourth").onclick = function () {
     buyOneDimension(4);
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.matter.equals(0)) player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
 };
 
 document.getElementById("fifth").onclick = function () {
@@ -507,12 +507,12 @@ document.getElementById("eight").onclick = function () {
 
 document.getElementById("firstMax").onclick = function () {
     buyManyDimension(1);
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.matter.equals(0)) player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
 };
 
 document.getElementById("secondMax").onclick = function () {
     buyManyDimension(2);
-    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.matter.equals(0)) player.matter = new Decimal(1);
+    if ((player.currentChallenge == "challenge12" || player.currentChallenge == "postc1") && player.antiPaperclip.equals(0)) player.antiPaperclip = new Decimal(1);
 };
 
 document.getElementById("thirdMax").onclick = function () {

@@ -44,7 +44,7 @@ if (player.options.notation === undefined) player.options.notation = "Standard";
   if (player.challenges === undefined) player.challenges = []
   if (player.currentChallenge === undefined) player.currentChallenge = ""
 if (player.infinitied > 0 && !player.challenges.includes("challenge1")) player.challenges.push("challenge1")
-  if (player.matter === undefined) player.matter = new Decimal(0)
+  if (player.antiPaperclip === undefined) player.antiPaperclip = new Decimal(0)
   if (player.autobuyers === undefined) player.autobuyers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   if (player.costMultipliers === undefined) player.costMultipliers = [new Decimal(1e3), new Decimal(1e4), new Decimal(1e5), new Decimal(1e6), new Decimal(1e8), new Decimal(1e10), new Decimal(1e12), new Decimal(1e15)]
   if (player.tickspeedMultiplier === undefined) player.tickspeedMultiplier = new Decimal(10)
@@ -204,7 +204,7 @@ if (player.infinitied > 0 && !player.challenges.includes("challenge1")) player.c
   if (player.autoIP === undefined) player.autoIP = new Decimal(0)
   if (player.autoTime === undefined) player.autoTime = 1e300;
 
-  if (player.matter === null) player.matter = new Decimal(0)
+  if (player.antiPaperclip === null) player.antiPaperclip = new Decimal(0)
   for (var i=0; i<12; i++) {
       if (player.autobuyers[i]%1 !== 0 && player.autobuyers[i].tier === undefined) {
           player.autobuyers[i].tier = i+1
@@ -411,8 +411,8 @@ if (player.version < 5) {
 
   if (player.infinitied == 0 && player.eternities == 0) document.getElementById("infinityPoints2").style.display = "none"
 
-  if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("matter").style.display = "inline-block";
-  else document.getElementById("matter").style.display = "none";
+  if (player.currentChallenge == "challenge12" || player.currentChallenge == "postc1" || player.currentChallenge == "postc6") document.getElementById("anti-paperclip").style.display = "inline-block";
+  else document.getElementById("anti-paperclip").style.display = "none";
 
 
 
@@ -717,7 +717,7 @@ function transformSaveToDecimal() {
   player.chall11Pow = new Decimal(player.chall11Pow)
   player.costMultipliers = [new Decimal(player.costMultipliers[0]), new Decimal(player.costMultipliers[1]), new Decimal(player.costMultipliers[2]), new Decimal(player.costMultipliers[3]), new Decimal(player.costMultipliers[4]), new Decimal(player.costMultipliers[5]), new Decimal(player.costMultipliers[6]), new Decimal(player.costMultipliers[7])]
   player.tickspeedMultiplier = new Decimal(player.tickspeedMultiplier)
-  player.matter = new Decimal(player.matter)
+  player.antiPaperclip = new Decimal(player.antiPaperclip)
   player.infinityPower = new Decimal(player.infinityPower)
   player.infinityDimension1.amount = new Decimal(player.infinityDimension1.amount)
   player.infinityDimension2.amount = new Decimal(player.infinityDimension2.amount)

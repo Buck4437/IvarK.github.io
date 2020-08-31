@@ -77,7 +77,7 @@ function softReset(bulk) {
       tickspeedMultiplier: new Decimal(10),
       chall2Pow: player.chall2Pow,
       chall3Pow: new Decimal(0.01),
-      matter: new Decimal(0),
+      antiPaperclip: new Decimal(0),
       chall11Pow: new Decimal(1),
       partInfinityPoint: player.partInfinityPoint,
       partInfinitied: player.partInfinitied,
@@ -244,7 +244,7 @@ document.getElementById("softReset").onclick = function () {
   auto = false;
   if (player.infinityUpgrades.includes("bulkBoost")) maxBuyDimBoosts(true);
   else softReset(1)
-  
+
   for (var tier = 1; tier<9; tier++) {
     var name = TIER_NAMES[tier];
     var mult = getDimensionBoostPower().pow(player.resets + 1 - tier)
